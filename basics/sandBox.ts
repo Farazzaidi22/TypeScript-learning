@@ -58,9 +58,9 @@ let ninjaObj1: {
     beltColor: string
 }
 
-let age: any =25
-age = true
+let agee: any = 25
+agee = true
 console.log(age)
 
-age = 'faraz'
+agee = 'faraz'
 console.log(age)
