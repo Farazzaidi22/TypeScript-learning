@@ -27,14 +27,23 @@ const addId = (obj) => {
 };
 let docOne = addId({ name: 'faraz', age: 23 });
 console.log(docOne.age);
+var ResourceType;
+(function (ResourceType) {
+    ResourceType[ResourceType["BOOK"] = 0] = "BOOK";
+    ResourceType[ResourceType["AUTHOR"] = 1] = "AUTHOR";
+    ResourceType[ResourceType["FILM"] = 2] = "FILM";
+    ResourceType[ResourceType["DIRECTION"] = 3] = "DIRECTION";
+    ResourceType[ResourceType["PERSON"] = 4] = "PERSON";
+    ResourceType[ResourceType["SHOPPINGLIST"] = 5] = "SHOPPINGLIST";
+})(ResourceType || (ResourceType = {}));
 const docThree = {
     uid: 1,
-    resName: 'person',
+    resName: ResourceType.PERSON,
     data: { name: 'faraz' }
 };
 const docFour = {
     uid: 2,
-    resName: 'shoppingList',
+    resName: ResourceType.SHOPPINGLIST,
     data: ['milk', 'eggs', 'chips']
 };
 console.log(docThree, docFour);
