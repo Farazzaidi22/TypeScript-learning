@@ -29,12 +29,37 @@ form.addEventListener('submit', (e: Event) => {
         doc = new Payment( tofrom.value,details.value,amount.valueAsNumber)
     }
 
-    console.log(
-        doc        
-    )
-
     list.render(doc, type.value, 'end')
 })
+
+const addId = <T extends {name: string, age: number}>(obj: T) => {
+    let id = Math.floor(Math.random() * 100)
+    return {...obj, id}
+}
+
+let docOne = addId( {name: 'faraz', age: 23} )
+console.log(docOne.age)
+
+interface Resource<T> {
+    uid: number,
+    resName: string,
+    data: T
+}
+
+const docThree: Resource<object> = {
+    uid: 1,
+    resName: 'person',
+    data: { name: 'faraz'}
+}
+
+
+const docFour: Resource<string[]> = {
+    uid: 2,
+    resName: 'shoppingList',
+    data: ['milk', 'eggs', 'chips']
+}
+
+console.log(docThree, docFour)
 
 // interface isPerson {
 //     name: string,

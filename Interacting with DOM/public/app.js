@@ -19,9 +19,25 @@ form.addEventListener('submit', (e) => {
     else {
         doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
     }
-    console.log(doc);
     list.render(doc, type.value, 'end');
 });
+const addId = (obj) => {
+    let id = Math.floor(Math.random() * 100);
+    return Object.assign(Object.assign({}, obj), { id });
+};
+let docOne = addId({ name: 'faraz', age: 23 });
+console.log(docOne.age);
+const docThree = {
+    uid: 1,
+    resName: 'person',
+    data: { name: 'faraz' }
+};
+const docFour = {
+    uid: 2,
+    resName: 'shoppingList',
+    data: ['milk', 'eggs', 'chips']
+};
+console.log(docThree, docFour);
 // interface isPerson {
 //     name: string,
 //     age: number,
