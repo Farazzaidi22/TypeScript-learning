@@ -1,8 +1,17 @@
-// const anchor = document.querySelector('a')! // ! means it will definetly return some value
+import {Invoice} from './classes/invoice.js'
 
-// console.log(anchor.href)
+const invOne = new Invoice('faraz', 'work on the mario website', 250)
+const invTwo = new Invoice('Mujji', 'work on the mario website', 350)
 
-// //console.log(anchor?.href) // ? means can have null value
+let invoices: Invoice[] = []
+invoices.push(invOne)
+invoices.push(invTwo)
+
+console.log(invoices)
+
+invoices.forEach(inv => {
+    console.log(inv.client, inv.details, inv.amount, inv.format())
+})
 
 
 const form = document.querySelector('.new-item-form') as HTMLFormElement
@@ -26,37 +35,8 @@ form.addEventListener('submit', (e: Event) => {
     )
 })
 
-class Invoice {
-    // readonly client: string
-    // private details: string
-    // public amount: number
+// const anchor = document.querySelector('a')! // ! means it will definetly return some value
 
-    // constructor(c: string, d: string, a: number){
-    //     this.client = c
-    //     this.details = d
-    //     this.amount = a
-    // }
+// console.log(anchor.href)
 
-    constructor(
-        readonly client: string,
-        public details: string,
-        public amount: number
-    ){}
-
-    format(){
-        return `${this.client} owes $${this.amount} for ${this.details}`
-    }
-}
-
-const invOne = new Invoice('faraz', 'work on the mario website', 250)
-const invTwo = new Invoice('Mujji', 'work on the mario website', 350)
-
-let invoices: Invoice[] = []
-invoices.push(invOne)
-invoices.push(invTwo)
-
-console.log(invoices)
-
-invoices.forEach(inv => {
-    console.log(inv.client, inv.details, inv.amount, inv.format())
-})
+// //console.log(anchor?.href) // ? means can have null value
