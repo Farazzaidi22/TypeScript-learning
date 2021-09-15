@@ -13,13 +13,21 @@ form.addEventListener('submit', function (e) {
     console.log(type.value, tofrom.value, details.value, amount.valueAsNumber);
 });
 var Invoice = /** @class */ (function () {
-    function Invoice(c, d, a) {
-        this.client = c;
-        this.details = d;
-        this.amount = a;
+    // readonly client: string
+    // private details: string
+    // public amount: number
+    // constructor(c: string, d: string, a: number){
+    //     this.client = c
+    //     this.details = d
+    //     this.amount = a
+    // }
+    function Invoice(client, details, amount) {
+        this.client = client;
+        this.details = details;
+        this.amount = amount;
     }
     Invoice.prototype.format = function () {
-        return this.client + " oews $" + this.amount + " for " + this.details;
+        return this.client + " owes $" + this.amount + " for " + this.details;
     };
     return Invoice;
 }());
@@ -28,4 +36,7 @@ var invTwo = new Invoice('Mujji', 'work on the mario website', 350);
 var invoices = [];
 invoices.push(invOne);
 invoices.push(invTwo);
-console.log(invOne, invTwo);
+console.log(invoices);
+invoices.forEach(function (inv) {
+    console.log(inv.client, inv.details, inv.amount, inv.format());
+});
